@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div>
+  <h1>Task List</h1>
+  <p *ngIf="tasks.length === 0">No tasks available!</p>
+  <ul>
+    <li 
+      *ngFor="let task of tasks" 
+      [ngClass]="{ 'completed': task.completed, 'pending': !task.completed }"
+      [ngStyle]="{ 'font-style': task.completed ? 'italic' : 'normal' }"
+    >
+      {{ task.title | capitalize }} - Due: {{ task.dueDate | date: 'shortDate' }}
+    </li>
+  </ul>
+</div>
+<app-footer></app-footer>
